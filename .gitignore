@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# new files to ignore
+mlops/
+backend.db/
+Yellow Taxi model dev and deployment/random_forest_model.pkl/
+
 # Distribution / packaging
 .Python
 build/
