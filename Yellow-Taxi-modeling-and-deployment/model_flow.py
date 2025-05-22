@@ -28,6 +28,13 @@ def evaluate_model(model: joblib, X_test: pd.DataFrame, y_test: pd.Series) -> fl
 def save_model(model: joblib, file_path: str) -> None:
     model_pipeline.save_model(model, file_path)
 
+@task
+def save_scaler(scaler:joblib, file_path: str) -> None:
+    """
+    Save the scaler
+    """
+    joblib.dump(scaler, file_path)
+
 # create the python function to run the flow
 @flow
 def run_flow(file_path: str) -> None:
@@ -36,12 +43,13 @@ def run_flow(file_path: str) -> None:
     """
     data = load_data(file_path)
     X_train, X_test, y_train, y_test = preprocess_data(data)
-    X_train, X_test = standardize_data(X_train, X_test)
+    X_train, X_test, scaler = standardize_data(X_train, X_test)
     model = train_model(X_train, y_train)
     mse = evaluate_model(model, X_test, y_test)
     print(f"Mean Squared Error: {mse}")
     save_model(model, "model.joblib")
+    save_scaler(scaler, "scaler.joblib")
+    print("model and scaler are saved")
 
 if __name__ == "__main__":
     run_flow("/Users/avikumart/Documents/GitHub/MLOps-Project/Data/yellow_tripdata_2025-01.parquet")
-    

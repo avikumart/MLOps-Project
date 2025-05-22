@@ -37,7 +37,7 @@ def standardize_data(X_train, X_test):
     scaler = StandardScaler()
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
-    return X_train, X_test
+    return X_train, X_test, scaler
 
 # create the python function to train the model
 def train_model(X_train, y_train):
@@ -62,3 +62,11 @@ def save_model(model, file_path):
     Save the model
     """
     joblib.dump(model, file_path)
+
+
+# save the standard scaler
+def save_scaler(scaler, file_path):
+    """
+    Save the scaler
+    """
+    joblib.dump(scaler, file_path)
