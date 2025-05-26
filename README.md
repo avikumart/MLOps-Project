@@ -35,4 +35,4 @@ Repository contains end to end mlops project with detailed tutorial and code wal
 
 ### Prefect Runs Image:
 
-![prefect runs](Yellow-Taxi-modeling-and-deployment/Screenshot 2025-05-21 at 11.53.21 AM.png)
+![Yellow-Taxi-modeling-and-deployment/Screenshot 2025-05-21 at 11.53.21 AM](https://github.com/avikumart/MLOps-Project/blob/main/Yellow-Taxi-modeling-and-deployment/Screenshot%202025-05-21%20at%2011.53.21%E2%80%AFAM.png)
